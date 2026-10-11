@@ -6,7 +6,6 @@ let firstNumber = "";
 let operator = "";
 let newNumber = false;
 
-// Listen for clicks on all calculator buttons
 buttons.forEach(function(button) {
     button.addEventListener("click", function() {
         let value = button.textContent;
@@ -45,7 +44,6 @@ buttons.forEach(function(button) {
             newNumber = true;
         }
 
-        // Calculate the answer
         else if (value === "=") {
             if (firstNumber === "" || operator === "" || newNumber === true) {
                 return;
@@ -68,7 +66,6 @@ buttons.forEach(function(button) {
                     newNumber = true;
                     return;
                 }
-
                 answer = Number(firstNumber) / Number(secondNumber);
             }
 
@@ -77,8 +74,6 @@ buttons.forEach(function(button) {
             operator = "";
             newNumber = true;
         }
-
-        // Enter a decimal point
         else if (value === ".") {
             if (display.textContent === "Error") {
                 return;
@@ -93,8 +88,6 @@ buttons.forEach(function(button) {
                 display.textContent += ".";
             }
         }
-
-        // Enter a number
         else {
             if (display.textContent === "Error") {
                 display.textContent = "0";
